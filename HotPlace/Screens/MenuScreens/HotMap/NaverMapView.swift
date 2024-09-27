@@ -15,9 +15,7 @@ struct NaverMapView: UIViewRepresentable {
     @Binding var selectedMarker: NMFMarker?             // 선택된 스토어 마커
     
     func updateUIView(_ uiView: NMFNaverMapView, context: Context) {
-        Logger.log("")
     }
-    
 
     func makeCoordinator() -> Coordinator {
         return Coordinator(self)

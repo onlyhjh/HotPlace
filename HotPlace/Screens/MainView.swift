@@ -65,8 +65,8 @@ struct MainView: View {
     
     var body: some View {
         GeometryReader { geo in
-            ZStack {
-                Color.clear.opacity(0.2).ignoresSafeArea()
+            ZStack() {
+                Color.white.opacity(0.2)
                 if let img = selectedBackgroundImage {
                     Image(uiImage: img)
                         .resizable()
@@ -106,7 +106,6 @@ struct MainView: View {
                         BottomNavigation(selectedIndex: $navigationTabIndex, items: AppConstants.navigationList) { selectedIndex in
                             vm.appScreenState = AppScreenState.getAppScreenState(index: selectedIndex)
                         }
-                        .background{ Color.white }
                     }
                 }
             }
@@ -174,6 +173,7 @@ struct MainView: View {
         }
         .onReceive(vm.$appScreenState , perform: { newValue in
             Logger.log("appScreenState = \(vm.appScreenState), newValue = \(newValue)")
+            
             // vm.appScreenState 직접 사용하면 view에 적용 안될때 있음 > State으로 받아서 사용
             DispatchQueue.main.async {
                 self.appScreenState = newValue
@@ -181,6 +181,12 @@ struct MainView: View {
     
             navigationTabIndex = newValue.rawValue
             isShowNavigation = newValue == .hotFeed || newValue == .hotMap || newValue == .my || newValue == .web || newValue == .web
+            
+            if let linkScreen = vm.linkScreen, newValue == .hotFeed {
+                Logger.log("link exist !!! \(linkScreen)")
+                vm.moveToScreen(screen: linkScreen)
+                vm.linkScreen = nil
+            }
         })
         .onReceive(vm.$sheetState , perform: { newValue in
             Logger.log("sheetState = \(String(describing: newValue))")

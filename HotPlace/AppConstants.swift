@@ -55,6 +55,8 @@ public struct AppConstants {
                       BottomNavigationItem(normalIcon: Image("menu_my_off"), selectedIcon: Image("menu_my"), text: "My"),
                                  BottomNavigationItem(normalIcon: Image("menu_web_off"), selectedIcon: Image("menu_web"), text: "Web")]
     static let navigationHeight = 72.0
+    
+    static var didLogin = false
 }
 
 enum LoginType: String {

@@ -14,6 +14,8 @@ struct HotPlaceApp: App {
     
     @State var isMask = true
 
+    let appContainer = AppEnvironmentSingleton.shared.appContainer
+    
     var body: some Scene {
         WindowGroup {
             ZStack {
@@ -35,6 +37,7 @@ struct HotPlaceApp: App {
                     .background(Color.blue.ignoresSafeArea())
                 }
             }
+            .ignoresSafeArea()
             .onReceive(NotificationCenter.default.publisher(for: UIScreen.capturedDidChangeNotification), perform: { _ in
                 //#if RELEASE
                 isMask = UIScreen.main.isCaptured
@@ -44,7 +47,15 @@ struct HotPlaceApp: App {
                 // Detected after screenshot
                 AppEnvironmentSingleton.showToast("Screen capture detected.", duration: 2.0)
             }
-
+            .onOpenURL { url in
+                print("deeplink url: \(url)")
+                switch appContainer.mainVM.appScreenState {
+                case .launching, .permisson, .terms:
+                    appContainer.mainVM.linkScreen = .my // Do move link later
+                default :
+                    appContainer.mainVM.appScreenState = .my
+                }
+            }
         }
         .onChange(of: scenePhase) { newScenePhase in
             switch newScenePhase {

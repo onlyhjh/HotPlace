@@ -221,6 +221,7 @@
 		A68838BE2C59B556005E144E /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		A68838C12C59B7AF005E144E /* ApiRequestParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequestParameters.swift; sourceTree = "<group>"; };
 		A68838C32C59B919005E144E /* ApiResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponses.swift; sourceTree = "<group>"; };
+		A6A7FB8C2CA69B0600853065 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A6A8EC3F2C59E2AC00ED179F /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		A6A8EC412C59EB2F00ED179F /* HotPlace.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HotPlace.entitlements; sourceTree = "<group>"; };
 		A6A8EC422C59EE6000ED179F /* CombineHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineHelper.swift; sourceTree = "<group>"; };
@@ -290,6 +291,7 @@
 		A68837B72C58B03B005E144E /* HotPlace */ = {
 			isa = PBXGroup;
 			children = (
+				A6A7FB8C2CA69B0600853065 /* Info.plist */,
 				A6A8EC412C59EB2F00ED179F /* HotPlace.entitlements */,
 				A68837BC2C58B03D005E144E /* Assets.xcassets */,
 				A68837B82C58B03B005E144E /* HotPlaceApp.swift */,
@@ -1362,6 +1364,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HotPlace/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = dnx_hot;
 				INFOPLIST_KEY_NSCameraUsageDescription = "피드등록을 위해 카메라 액세스를 허가해 주세요.";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "사용자 또는 사용자의 장치를 식별할 수 있는 정보를 수집합니다.";
@@ -1401,6 +1404,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HotPlace/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = dnx_hot;
 				INFOPLIST_KEY_NSCameraUsageDescription = "피드등록을 위해 카메라 액세스를 허가해 주세요.";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "사용자 또는 사용자의 장치를 식별할 수 있는 정보를 수집합니다.";

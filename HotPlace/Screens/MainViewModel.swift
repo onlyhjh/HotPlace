@@ -14,7 +14,6 @@ enum FullScreenCoverType {
 }
 
 class MainViewModel: ObservableObject {
-
     
     @Published var appScreenState: AppScreenState = .launching
     @Published var sheetState: SheetState? = nil
@@ -22,8 +21,31 @@ class MainViewModel: ObservableObject {
     @Published var isShowFullScreenCover = false
     
     var fullScreenCoverType: FullScreenCoverType = .web
+    var linkScreen: AppScreenState?
     var webUrlStr: String = ""
     let cancelBag = CancelBag()
+    
+    func moveToScreen(screen: AppScreenState) {
+        // check login
+        if screen == .my {
+            DispatchQueue.main.async {
+                let alert = AppEnvironmentSingleton.shared.appContainer.alertVM
+                alert.resetModel()
+                alert.title = "로그인"
+                alert.description = "로그인 테스트 "
+                alert.imageType = .warning
+                alert.button1Title = "확인"
+                alert.button1Action = {
+                    self.appScreenState = screen
+                    alert.isPresented = false
+                }
+                alert.isPresented = true
+            }
+        }
+        else {
+            self.appScreenState = screen
+        }
+    }
     
     func requestLaunch(successCompletion: @escaping () -> Void, failureCompletion: @escaping () -> Void) {
         var isSuccess = false
