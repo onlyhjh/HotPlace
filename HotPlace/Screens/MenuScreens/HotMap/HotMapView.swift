@@ -12,27 +12,23 @@ struct HotMapView: View {
     @ObservedObject var vm = HotMapViewModel()
     
     @State var selectedMarker: NMFMarker?     // 선택된 스토어 마커
-    @State var draggedOffset = CGSize.zero
-    @State var lastOffsetY: Double = 50
-    @State var feedSpacerHeight: CGFloat = 50
+    @State var dragOffsetY: CGFloat = 100
+    @State var currentOffsetY: CGFloat = 100
     
     var drag: some Gesture {
         DragGesture()
             .onChanged{ gesture in
-                withAnimation(.spring()) {
-                    var y = lastOffsetY + gesture.translation.height
-                    if y < 20 { y = 20 }
-                    if y > UIScreen.main.bounds.size.height - 20 { y = UIScreen.main.bounds.size.height - 20 }
-                    feedSpacerHeight = y
-                    print("gesutre: \(y)")
+                withAnimation() {
+                    dragOffsetY = gesture.translation.height + currentOffsetY
+                    if dragOffsetY < 50 { dragOffsetY = 50 }
+                    else if dragOffsetY > UIScreen.main.bounds.size.height - 200 { dragOffsetY = UIScreen.main.bounds.size.height - 200 }
                 }
-                
             }
             .onEnded{ gesture in
-                withAnimation(.spring()) {
-                    if gesture.translation.height > 0 { feedSpacerHeight = UIScreen.main.bounds.size.height - 50 }
-                    else if gesture.translation.height < 0 { feedSpacerHeight = 50 }
-                    lastOffsetY = feedSpacerHeight
+                withAnimation() {
+                    if gesture.translation.height < 0 {  dragOffsetY = 100 }
+                    else { dragOffsetY = UIScreen.main.bounds.size.height - 238 }
+                    currentOffsetY = dragOffsetY
                 }
             }
     }
@@ -45,17 +41,20 @@ struct HotMapView: View {
             
             if selectedMarker != nil {
                 VStack {
-                    Spacer()
-                        .frame(height: feedSpacerHeight)
-                    VStack {
-                        Text("---")
-                            .gesture(drag)
-                        ScrollView {
-                            FeedView()
-                        }
+                    let store = HotStore(name: selectedMarker?.captionText, imagePath: "store_default")
+                    let feed = HotFeed(store: store, title: "my best food 111", imagePaths: ["store_default", "store_default", "store_default"], description: "\(selectedMarker?.captionText ?? "11111")\n 가나다라마바사아자카차타파하\n가나다라마바사아자카차타파하\n가나다라마바사아자카차타파하\n가나다라마바사아자카차타파하\n가나다라마바사아자카차타파하\n가나다라마바사아자카차타파하\n가나다라마바사아자카차타파하\n가나다라마바사아자카차타파하\n가나다라마바사아자카차타파하\n가나다라마바사아자카차타파하\n가나다라마바사아자카차타파하")
+                    
+                    Text("---")
+                    StoreTitleView(store: store)
+                        .padding(.horizontal, 20)
+                    ScrollView {
+                        FeedView(feed: feed)
                     }
-                    .background(Color.white)
+                    .padding(.bottom, 20)
                 }
+                .background(Color.white)
+                .offset(y: dragOffsetY)
+                .gesture(drag)
             }
         }
         .onAppear {
@@ -63,6 +62,12 @@ struct HotMapView: View {
         }
         .onDisappear {
             UIScrollView.appearance().bounces = true
+        }
+        .onChange(of: selectedMarker) { marker in
+            if marker == nil {
+                dragOffsetY = 100
+                currentOffsetY = 100
+            }
         }
     }
 }

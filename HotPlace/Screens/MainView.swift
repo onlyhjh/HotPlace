@@ -103,12 +103,12 @@ struct MainView: View {
                     }
                     
                     if isShowNavigation {
-                        BottomNavigation(selectedIndex: $navigationTabIndex, items: AppConstants.navigationList, height: AppConstants.navigationHeight) { selectedIndex in
+                        BottomNavigation(selectedIndex: $navigationTabIndex, items: AppConstants.navigationList) { selectedIndex in
                             vm.appScreenState = AppScreenState.getAppScreenState(index: selectedIndex)
                         }
+                        .background{ Color.white }
                     }
                 }
-                
             }
         }
         .photosPicker(isPresented: $isShowPhotoPicker, selection: $selectedPhotosPickerItems,maxSelectionCount: 1)

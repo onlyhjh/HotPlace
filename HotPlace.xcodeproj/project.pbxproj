@@ -13,6 +13,9 @@
 		A61AA03B2C61D35D00463C98 /* PreferenceDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61AA03A2C61D35D00463C98 /* PreferenceDataManager.swift */; };
 		A61AA0412C61EB3300463C98 /* ScreenshotPreventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61AA0402C61EB3300463C98 /* ScreenshotPreventView.swift */; };
 		A61AA0432C62019500463C98 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61AA0422C62019500463C98 /* FeedView.swift */; };
+		A66ECF532CA530CA00D393E7 /* StoreTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66ECF522CA530CA00D393E7 /* StoreTitleView.swift */; };
+		A66ECF552CA5365E00D393E7 /* HotFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66ECF542CA5365700D393E7 /* HotFeed.swift */; };
+		A66ECF572CA537D200D393E7 /* HotStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66ECF562CA537CE00D393E7 /* HotStore.swift */; };
 		A68837B92C58B03B005E144E /* HotPlaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68837B82C58B03B005E144E /* HotPlaceApp.swift */; };
 		A68837BB2C58B03B005E144E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68837BA2C58B03B005E144E /* MainView.swift */; };
 		A68837C72C58B12A005E144E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68837C62C58B12A005E144E /* AppDelegate.swift */; };
@@ -125,6 +128,9 @@
 		A61AA03A2C61D35D00463C98 /* PreferenceDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceDataManager.swift; sourceTree = "<group>"; };
 		A61AA0402C61EB3300463C98 /* ScreenshotPreventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotPreventView.swift; sourceTree = "<group>"; };
 		A61AA0422C62019500463C98 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		A66ECF522CA530CA00D393E7 /* StoreTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTitleView.swift; sourceTree = "<group>"; };
+		A66ECF542CA5365700D393E7 /* HotFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotFeed.swift; sourceTree = "<group>"; };
+		A66ECF562CA537CE00D393E7 /* HotStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotStore.swift; sourceTree = "<group>"; };
 		A68837B52C58B03B005E144E /* HotPlace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotPlace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A68837B82C58B03B005E144E /* HotPlaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotPlaceApp.swift; sourceTree = "<group>"; };
 		A68837BA2C58B03B005E144E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -327,6 +333,7 @@
 				A68837CF2C58BD38005E144E /* HotFeedView.swift */,
 				A68837CD2C58BD2D005E144E /* HotFeedViewModel.swift */,
 				A61AA0422C62019500463C98 /* FeedView.swift */,
+				A66ECF522CA530CA00D393E7 /* StoreTitleView.swift */,
 			);
 			path = HotFeed;
 			sourceTree = "<group>";
@@ -352,6 +359,8 @@
 		A68837E22C58BFC0005E144E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A66ECF562CA537CE00D393E7 /* HotStore.swift */,
+				A66ECF542CA5365700D393E7 /* HotFeed.swift */,
 				A68838B22C58DB9B005E144E /* CommonInfoSheetMessage.swift */,
 			);
 			path = Models;
@@ -1110,6 +1119,7 @@
 				A68838882C58D2BD005E144E /* AccountHistoryCard.swift in Sources */,
 				A68838A62C58D2BD005E144E /* PinView.swift in Sources */,
 				A61AA0392C61AD1E00463C98 /* HotWebView.swift in Sources */,
+				A66ECF532CA530CA00D393E7 /* StoreTitleView.swift in Sources */,
 				A68838A82C58D2BD005E144E /* DataTable.swift in Sources */,
 				A68837D02C58BD38005E144E /* HotFeedView.swift in Sources */,
 				A68838AB2C58D2BD005E144E /* ToastModifier.swift in Sources */,
@@ -1187,6 +1197,7 @@
 				A68837DF2C58BF64005E144E /* SearchViewModel.swift in Sources */,
 				A68838772C58D2BD005E144E /* OutlinedButton.swift in Sources */,
 				A68838A92C58D2BD005E144E /* TextSwitch.swift in Sources */,
+				A66ECF552CA5365E00D393E7 /* HotFeed.swift in Sources */,
 				A688387E2C58D2BD005E144E /* CTAButton.swift in Sources */,
 				A68838B32C58DB9B005E144E /* CommonInfoSheetMessage.swift in Sources */,
 				A6D3C2DF2C5A072300B0E556 /* ApiUseCaseProtocols.swift in Sources */,
@@ -1206,6 +1217,7 @@
 				A61AA0412C61EB3300463C98 /* ScreenshotPreventView.swift in Sources */,
 				A68837E82C58C135005E144E /* PermissionViewModel.swift in Sources */,
 				A68837D72C58BF04005E144E /* MyView.swift in Sources */,
+				A66ECF572CA537D200D393E7 /* HotStore.swift in Sources */,
 				A68838AA2C58D2BD005E144E /* ToastOverlay.swift in Sources */,
 				A6D3C2E82C5A1B6700B0E556 /* AppEnviromentSingleton.swift in Sources */,
 				A68837B92C58B03B005E144E /* HotPlaceApp.swift in Sources */,

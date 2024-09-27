@@ -42,7 +42,6 @@ public struct BottomNavigation: View {
     var normalColor: Color = Color.gray400
     var selectedColor: Color = Color.gold600
     var didSelected: (Int) -> Void
-    var navigationHeight: CGFloat = 72.0
 
 	/**
 	Bottom Navigation in App.
@@ -52,11 +51,9 @@ public struct BottomNavigation: View {
 	*/
     public init(selectedIndex:Binding<Int>,
                 items: [BottomNavigationItem] = [],
-                height: CGFloat = 72,
                 didSelected: @escaping (Int) -> Void) {
         self.items = items
         self.didSelected = didSelected
-        self.navigationHeight = height
         self._selectedIndex = selectedIndex
     }
     
@@ -89,7 +86,7 @@ public struct BottomNavigation: View {
             }
         }
         .padding(.horizontal, 12)
-        .frame(height: navigationHeight)
+        .frame(height: AppConstants.bottomNavigationHeight)
         .fixedSize(horizontal: false, vertical: true)
         .ignoresSafeArea(.keyboard)
         .background(Color.white.ignoresSafeArea())
