@@ -53,7 +53,7 @@ struct HotPlaceApp: App {
                 case .launching, .permisson, .terms:
                     appContainer.mainVM.linkScreen = .my // Do move link later
                 default :
-                    appContainer.mainVM.appScreenState = .my
+                    appContainer.mainVM.moveToScreen(screen: .my)
                 }
             }
         }

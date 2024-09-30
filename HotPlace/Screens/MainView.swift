@@ -104,7 +104,7 @@ struct MainView: View {
                     
                     if isShowNavigation {
                         BottomNavigation(selectedIndex: $navigationTabIndex, items: AppConstants.navigationList) { selectedIndex in
-                            vm.appScreenState = AppScreenState.getAppScreenState(index: selectedIndex)
+                            vm.moveToScreen(screen: AppScreenState.getAppScreenState(index: selectedIndex))
                         }
                     }
                 }
