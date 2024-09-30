@@ -24,22 +24,22 @@ class MainViewModel: ObservableObject {
     var linkScreen: AppScreenState?
     var webUrlStr: String = ""
     let cancelBag = CancelBag()
-    
+
     func moveToScreen(screen: AppScreenState) {
-        // check login
+        // check login menu
         if screen == .my {
             DispatchQueue.main.async {
-                let alert = AppEnvironmentSingleton.shared.appContainer.alertVM
-                alert.resetModel()
-                alert.title = "로그인"
-                alert.description = "로그인 테스트 "
-                alert.imageType = .warning
-                alert.button1Title = "확인"
-                alert.button1Action = {
+                let loginVM = AppEnvironmentSingleton.shared.appContainer.loginVM
+                loginVM.resetModel()
+                loginVM.title = "로그인"
+                loginVM.description = "로그인 테스트 "
+                loginVM.imageType = .warning
+                loginVM.button1Title = "확인"
+                loginVM.button1Action = {
                     self.appScreenState = screen
-                    alert.isPresented = false
+                    loginVM.isPresented = false
                 }
-                alert.isPresented = true
+                loginVM.isPresented = true
             }
         }
         else {

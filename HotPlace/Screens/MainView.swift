@@ -37,12 +37,12 @@ enum SheetState: Hashable, Identifiable {
     var id: SheetState { self }
 }
 
-@available(iOS 16.0, *)
 struct MainView: View {
     @Environment(\.appContainer.mainVM) private var vm:  MainViewModel
     @Environment(\.appContainer.loadingVM) private var loadingVM:  LoadingViewModel
     @Environment(\.appContainer.alertVM) private var alertVM: InfoSheetViewModel
     @Environment(\.appContainer.toastVM) private var toastVM: ToastViewModel
+    @Environment(\.appContainer.loginVM) private var loginVM: InfoSheetViewModel
     
     static let id = String(describing: Self.self)
     
@@ -149,6 +149,7 @@ struct MainView: View {
         .modifier(AlertViewModifier(vm: alertVM))
         .modifier(LoadingViewModifier(vm: loadingVM))
         .modifier(ToastViewModfier(vm: toastVM))
+        .modifier(LoginViewModifier(vm: loginVM))
         .onAppear {
             if vm.appScreenState == .launching {
                 vm.requestLaunch(successCompletion: {
@@ -227,10 +228,5 @@ struct MainView: View {
 }
 
 #Preview {
-    if #available(iOS 16.0, *) {
-        MainView()
-    }
-    else {
-        Color.blue
-    }
+    MainView()
 }

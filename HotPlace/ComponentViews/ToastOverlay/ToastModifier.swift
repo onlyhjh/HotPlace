@@ -27,6 +27,6 @@ public struct ToastViewModfier: ViewModifier {
             content
         }
         // MARK: - Demo Toast
-        .toastOverlay(icon: vm.icon, message: vm.toastMessage, isDisplay: $vm.isShowToast, duration: vm.toastDuration, bottomPadding: vm.bottomPadding)
+        .toastOverlay(icon: vm.icon, message: vm.toastMessage, isDisplay: $vm.isShow, duration: vm.toastDuration, bottomPadding: vm.bottomPadding)
     }
 }

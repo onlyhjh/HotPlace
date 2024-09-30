@@ -15,8 +15,6 @@ struct MyView: View {
         VStack{
             Text("MyView")
             Spacer()
-            TextField("my name", text: $inputStr)
-            Spacer()
             
             ScrollView {
                 Button("show loading", action: {
@@ -59,6 +57,9 @@ struct MyView: View {
                 
                 Button("show_photoPicker") { appContainer.mainVM.isShowPhotoPicker = true }
             }
+            
+            Spacer()
+            TextField("my name", text: $inputStr)
         }
     }
 }

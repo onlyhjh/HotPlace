@@ -1,5 +1,5 @@
 //
-//  AlertViewModifier.swift
+//  LoginViewModifier.swift
 //  UIBank
 //
 //  Created by 60156664 on 17/02/2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct AlertViewModifier: ViewModifier {
+public struct LoginViewModifier: ViewModifier {
     
     @ObservedObject public var vm: InfoSheetViewModel
     @State var isPresent: Bool = false
@@ -18,9 +18,10 @@ public struct AlertViewModifier: ViewModifier {
             content
     
             if isPresent {
-                AlertView(vm: vm)
+                LoginView(vm: vm)
             }
         }
+        .ignoresSafeArea()
         .onReceive(vm.$isPresented, perform: { newValue in
             isPresent = newValue
         })
@@ -28,9 +29,10 @@ public struct AlertViewModifier: ViewModifier {
 }
 
 
-public struct AlertView: View {
+public struct LoginView: View {
     
     @ObservedObject var vm: InfoSheetViewModel
+    @State var inputStr = ""
 
     public var body: some View {
         ZStack {
@@ -43,15 +45,16 @@ public struct AlertView: View {
                 Spacer()
                 
                 VStack {
-                    Text(vm.title ?? "no title")
-                    Text(vm.description)
+                    Text("login")
+                    
+                    TextField("my name", text: $inputStr)
+                        .padding(20)
                     
                     CTAButton(type: .basic, config: OneButtonConfig(text: vm.button1Title, colorType: .primary, backgroundType: .filled, action: {
                         if let action = vm.button1Action {
                             action()
                         }
                     }))
-
                 }
                 .padding(20)
                 .background{
@@ -61,8 +64,8 @@ public struct AlertView: View {
                 
             }
         }
-        //.edgesIgnoringSafeArea(.all)
-        .ignoresSafeArea(.keyboard)
+//        .edgesIgnoringSafeArea(.all)
+//        .ignoresSafeArea(.keyboard)
 
         .onAppear{
             hideKeyboard()

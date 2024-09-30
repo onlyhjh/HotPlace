@@ -105,6 +105,8 @@
 		A6A8EC3E2C59D19400ED179F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A68837BC2C58B03D005E144E /* Assets.xcassets */; };
 		A6A8EC402C59E2AC00ED179F /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A8EC3F2C59E2AC00ED179F /* ArrayExtension.swift */; };
 		A6A8EC432C59EE6000ED179F /* CombineHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A8EC422C59EE6000ED179F /* CombineHelper.swift */; };
+		A6C246002CAA85D900DCD0B8 /* LoginViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C245FF2CAA85C700DCD0B8 /* LoginViewModifier.swift */; };
+		A6C246022CAA862200DCD0B8 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C246012CAA861D00DCD0B8 /* LoginViewModel.swift */; };
 		A6D361A82C5C6739003BC721 /* HotMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D361A72C5C6739003BC721 /* HotMapView.swift */; };
 		A6D361AA2C5C6746003BC721 /* HotMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D361A92C5C6746003BC721 /* HotMapViewModel.swift */; };
 		A6D361AC2C5C6756003BC721 /* NoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D361AB2C5C6756003BC721 /* NoticeViewModel.swift */; };
@@ -225,6 +227,8 @@
 		A6A8EC3F2C59E2AC00ED179F /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		A6A8EC412C59EB2F00ED179F /* HotPlace.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HotPlace.entitlements; sourceTree = "<group>"; };
 		A6A8EC422C59EE6000ED179F /* CombineHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineHelper.swift; sourceTree = "<group>"; };
+		A6C245FF2CAA85C700DCD0B8 /* LoginViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModifier.swift; sourceTree = "<group>"; };
+		A6C246012CAA861D00DCD0B8 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		A6D361A72C5C6739003BC721 /* HotMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotMapView.swift; sourceTree = "<group>"; };
 		A6D361A92C5C6746003BC721 /* HotMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotMapViewModel.swift; sourceTree = "<group>"; };
 		A6D361AB2C5C6756003BC721 /* NoticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewModel.swift; sourceTree = "<group>"; };
@@ -391,6 +395,7 @@
 		A68837E92C58D29A005E144E /* ComponentViews */ = {
 			isa = PBXGroup;
 			children = (
+				A6C245FE2CAA85A600DCD0B8 /* Login */,
 				A68838172C58D2BD005E144E /* Alert */,
 				A68837EC2C58D2BD005E144E /* Banner */,
 				A68837EA2C58D2BD005E144E /* BottomNavigation */,
@@ -907,6 +912,15 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		A6C245FE2CAA85A600DCD0B8 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A6C246012CAA861D00DCD0B8 /* LoginViewModel.swift */,
+				A6C245FF2CAA85C700DCD0B8 /* LoginViewModifier.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		A6D361A32C5C653A003BC721 /* MenuScreens */ = {
 			isa = PBXGroup;
 			children = (
@@ -1134,6 +1148,7 @@
 				A68838732C58D2BD005E144E /* Chip.swift in Sources */,
 				A68838B72C58DE69005E144E /* ViewExtension.swift in Sources */,
 				A68838812C58D2BD005E144E /* BasicDropDown.swift in Sources */,
+				A6C246022CAA862200DCD0B8 /* LoginViewModel.swift in Sources */,
 				A68838822C58D2BD005E144E /* OneTimePassword.swift in Sources */,
 				A68837D92C58BF29005E144E /* MyViewModel.swift in Sources */,
 				A68838A12C58D2BD005E144E /* CustomTextField.swift in Sources */,
@@ -1221,6 +1236,7 @@
 				A68837D72C58BF04005E144E /* MyView.swift in Sources */,
 				A66ECF572CA537D200D393E7 /* HotStore.swift in Sources */,
 				A68838AA2C58D2BD005E144E /* ToastOverlay.swift in Sources */,
+				A6C246002CAA85D900DCD0B8 /* LoginViewModifier.swift in Sources */,
 				A6D3C2E82C5A1B6700B0E556 /* AppEnviromentSingleton.swift in Sources */,
 				A68837B92C58B03B005E144E /* HotPlaceApp.swift in Sources */,
 				A688389E2C58D2BD005E144E /* SearchTextField.swift in Sources */,
@@ -1374,7 +1390,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1414,7 +1430,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

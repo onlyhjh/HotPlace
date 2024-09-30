@@ -13,19 +13,16 @@ struct HotPlaceApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     @State var isMask = true
+    @State var safeAreaInsets: (top: CGFloat, bottom: CGFloat) = (0, 0)
 
     let appContainer = AppEnvironmentSingleton.shared.appContainer
     
     var body: some Scene {
         WindowGroup {
             ZStack {
-                if #available(iOS 16.0, *) {
-                    MainView()
-                        .environment(\.appContainer, AppEnvironmentSingleton.shared.appContainer)
-                    // Block Screenshot (Store App only)
-                    //#if RELEASE
-                        .preventScreenshot()
-                }
+                MainView()
+                    .environment(\.appContainer, AppEnvironmentSingleton.shared.appContainer)
+                    .preventScreenshot()
 
                 if isMask {
                     ZStack(alignment: .bottom) {
@@ -37,12 +34,11 @@ struct HotPlaceApp: App {
                     .background(Color.blue.ignoresSafeArea())
                 }
             }
-            .ignoresSafeArea()
-            .onReceive(NotificationCenter.default.publisher(for: UIScreen.capturedDidChangeNotification), perform: { _ in
+            .onReceive(NotificationCenter.default.publisher(for: UIScreen.capturedDidChangeNotification)) { _ in
                 //#if RELEASE
                 isMask = UIScreen.main.isCaptured
                 //#endif
-            })
+            }
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.userDidTakeScreenshotNotification)) { _ in
                 // Detected after screenshot
                 AppEnvironmentSingleton.showToast("Screen capture detected.", duration: 2.0)

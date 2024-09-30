@@ -26,6 +26,12 @@ struct AppContainer {
     let loadingVM = LoadingViewModel()
     let alertVM = InfoSheetViewModel()
     let toastVM = ToastViewModel()
+    let loginVM = InfoSheetViewModel()
+}
+
+// 환경변수 기본값 등록
+struct AppContainerKey: EnvironmentKey {
+    static var defaultValue: AppContainer = AppContainer()
 }
 
 // @Environment 2 환경변수 추가
@@ -35,11 +41,3 @@ extension EnvironmentValues {
         set { self[AppContainerKey.self] = newValue }
     }
 }
-
-// 환경변수 기본값 등록
-struct AppContainerKey: EnvironmentKey {
-    static var defaultValue: AppContainer = AppContainer()
-}
-
-
-
