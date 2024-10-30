@@ -19,7 +19,11 @@ struct HotWebView: UIViewRepresentable {
         let webView = WKWebView()
         let req = URLRequest(url: reqURL)
         webView.load(req)
-       
+        
+        if #available(iOS 16.4, *) {
+            webView.isInspectable = true
+        }
+        
         return webView
     }
     

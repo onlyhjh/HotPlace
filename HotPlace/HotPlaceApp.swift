@@ -23,6 +23,7 @@ struct HotPlaceApp: App {
                 MainView()
                     .environment(\.appContainer, AppEnvironmentSingleton.shared.appContainer)
                     .preventScreenshot()
+                    .ignoresSafeArea(.keyboard) // <<< 요기서 적용해야 키보드 올라올 때 정상 작동함!
 
                 if isMask {
                     ZStack(alignment: .bottom) {
